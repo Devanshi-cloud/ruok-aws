@@ -16,7 +16,7 @@ import Header from "@/components/Header.tsx";
 import {GoogleLogin, GoogleOAuthProvider} from "@react-oauth/google";
 import {setUserType, type UserType} from "@/utils/slice/configSlice.ts";
 
-const Login = () => {
+function Login() {
     const userType = useSelector((store: {config: {userType: UserType}}) => store.config.userType)
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -60,12 +60,10 @@ const Login = () => {
         }
     }
 
-    const handleLogin = async () => {
-        if (!emailId || !password) {
-            toast.error("Please enter email and password");
-            return;
-        }
-        
+    const handleLogin = async (e: React.FormEvent) => { // Or whatever your login function is named
+        e.preventDefault();
+        setMessage(""); // Clear any previous messages at the start of a new attempt
+
         try {
             setIsLoading(true);
             const response = await axios.post(
@@ -282,5 +280,7 @@ const Login = () => {
         </GoogleOAuthProvider>
     )
 }
+
+
 
 export default Login

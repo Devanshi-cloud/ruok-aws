@@ -1,33 +1,33 @@
 import { TextHoverEffect } from "@/components/ui/text-hover-effect.tsx";
 import { Github} from "lucide-react";
-import { AnimatedTooltip } from "./ui/animated-tooltip.tsx";
+// import { AnimatedTooltip } from "./ui/animated-tooltip.tsx";
 
 const Footer = () => {
 
-    const people = [
-        {
-            id: 1,
-            name: "Suvrat Mittal",
-            image:
-                "https://avatars.githubusercontent.com/u/148795154?v=4",
-            url:"https://github.com/suvrat007"
-        },
-        {
-            id: 2,
-            name: "Chehak Sharma",
-            image:
-                "https://avatars.githubusercontent.com/u/145372537?v=4",
-            url:"https://github.com/ch3hak"
-        },
-        {
-            id: 3,
-            name: "Tanishq Sethi",
-            image:
-                "https://avatars.githubusercontent.com/u/148245926?v=4",
-            url:"https://github.com/iamtanishqsethi"
-        },
+    // const people = [
+    //     {
+    //         id: 1,
+    //         name: "Suvrat Mittal",
+    //         image:
+    //             "https://avatars.githubusercontent.com/u/148795154?v=4",
+    //         url:"https://github.com/suvrat007"
+    //     },
+    //     {
+    //         id: 2,
+    //         name: "Chehak Sharma",
+    //         image:
+    //             "https://avatars.githubusercontent.com/u/145372537?v=4",
+    //         url:"https://github.com/ch3hak"
+    //     },
+    //     {
+    //         id: 3,
+    //         name: "Tanishq Sethi",
+    //         image:
+    //             "https://avatars.githubusercontent.com/u/148245926?v=4",
+    //         url:"https://github.com/iamtanishqsethi"
+    //     },
 
-    ];
+    // ];
 
     return (
         <footer className="font-secondary bottom-0 w-full flex flex-col items-center justify-center  bg-zinc-200/60 dark:bg-black/60 backdrop-blur-sm  py-8 border-t border-gray-600/30 dark:border-gray-800/30">
