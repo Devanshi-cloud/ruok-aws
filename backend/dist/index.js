@@ -19,7 +19,7 @@ const Feedback_1 = __importDefault(require("./routes/Feedback"));
 const Booking_1 = __importDefault(require("./routes/Booking"));
 const Chat_1 = __importDefault(require("./routes/Chat"));
 app.use((0, cors_1.default)({
-    origin: ['http://localhost:5173', 'https://ru-ok.vercel.app', 'https://ruok-sih.vercel.app'],
+    origin: ['http://localhost:5173', 'https://sahayak-9iho.vercel.app'],
     credentials: true,
 }));
 app.use(express_1.default.json());
