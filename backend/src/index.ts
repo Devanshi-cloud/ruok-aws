@@ -15,7 +15,7 @@ import bookingRoutes from './routes/Booking';
 import chatRouter from './routes/Chat';
 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000", "https://sahayak-oaed.vercel.app"],
+  origin: ["http://localhost:5173", "http://localhost:3000", "https://sahayak-oaed.vercel.app", "https://sahayak-9iho.vercel.app"],
   credentials: true,
 }));
 app.use(express.json());

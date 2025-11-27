@@ -60,8 +60,6 @@ router.post('/signup', async (req:Request, res:Response) => {
 
 
 router.post('/login', async (req:Request, res:Response) => {
-
-    //validating body
     const {error}=logInValidation.validate(req.body)
     if (error) {
         return res.status(411).json({ message: error.details[0].message });
@@ -69,7 +67,6 @@ router.post('/login', async (req:Request, res:Response) => {
 
     const {email,password} = req.body
     try{
-        //check if the user  exists
         const user=await User.findOne({ email: email })
         if(!user){
             return res.status(403).json({ message: 'Invalid Credentials' });
@@ -80,13 +77,12 @@ router.post('/login', async (req:Request, res:Response) => {
             return res.status(403).json({ message: 'Please log in with Google' });
         }
 
-        //validate password
-        const isValidPassword=await bcrypt.compare(password,user.password!)
+        //validate password - add null check
+        const isValidPassword = user.password ? await bcrypt.compare(password, user.password) : false;
         if(!isValidPassword){
             return res.status(403).json({ message: 'Invalid Credentials' })
         }
 
-        //create jwt token
         const token=jwt.sign({_id:user._id},process.env.JWT_KEY!,{expiresIn:'1d'});
         res.cookie("token",token,{
             httpOnly: true,
@@ -102,7 +98,7 @@ router.post('/login', async (req:Request, res:Response) => {
 
     }
     catch (err) {
-        console.error("Login Error:", err); // Changed "Signup Error" to "Login Error" for clarity
+        console.error("Login Error:", err);
         return res.status(500).json({ message: 'Internal server error' });
     }
 })
