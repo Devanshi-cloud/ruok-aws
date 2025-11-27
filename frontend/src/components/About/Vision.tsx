@@ -45,7 +45,7 @@ const Vision = () => {
                     className="text-lg md:text-xl text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-4xl mx-auto mb-8"
                     variants={fadeInUp}
                 >
-                    We envision a world where everyone has the language, tools, and support to navigate their emotional wellness journey with confidence and precision. RuOk aims to bridge the gap between feeling something is wrong and understanding exactly what you're experiencing.
+                    We envision a world where everyone has the language, tools, and support to navigate their emotional wellness journey with confidence and precision. Sahayak aims to bridge the gap between feeling something is wrong and understanding exactly what you're experiencing.
                 </motion.p>
 
                 <motion.div

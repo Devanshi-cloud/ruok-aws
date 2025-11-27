@@ -128,7 +128,7 @@ export default function Navbar() {
                                 <Link to={'/'}>
                                     <Button variant={'ghost'} className="w-full justify-start gap-2">
                                         <HeartHandshake className="h-5 w-5"/>
-                                        <span>RUOk</span>
+                                        <span>Sahayak</span>
                                     </Button>
                                 </Link>
                                 <Link to={'/main/profile'}>

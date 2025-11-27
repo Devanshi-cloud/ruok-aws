@@ -275,11 +275,11 @@ export function SideBar() {
                 <div className="absolute z-20 bg-zinc-500/60 dark:bg-zinc-900/60 backdrop-blur-sm h-screen w-full flex flex-col items-center justify-center">
                     <Card className="w-[20rem] md:w-[37rem] h-[23rem] bg-zinc-100 dark:bg-zinc-950 overflow-hidden border-3 flex flex-col items-center justify-center">
                         <h1 className="font-mynabali text-5xl md:text-7xl my-4 font-medium">
-                            RuOk
+                            Sahayak
                         </h1>
                         <p className="text-center px-12 font-secondary text-sm text-zinc-700 dark:text-zinc-400">
                             You've reached the end of your free guest session!<br/>
-                            Create an account to continue exploring your emotions and unlock all of RuOk's features.
+                            Create an account to continue exploring your emotions and unlock all of Sahayak's features.
                         </p>
                         <InteractiveHoverButton
                             onClick={handleGuestNavigate}
@@ -308,7 +308,7 @@ export const Logo = () => {
                 animate={{ opacity: 1 }}
                 className="font-mynabali-serif  font-semibold font-2xl whitespace-pre text-black dark:text-white"
             >
-                RUOk
+                Sahayak
             </motion.span>
         </Link>
     );

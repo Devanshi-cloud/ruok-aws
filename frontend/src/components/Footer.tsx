@@ -32,7 +32,7 @@ const Footer = () => {
     return (
         <footer className="font-secondary bottom-0 w-full flex flex-col items-center justify-center  bg-zinc-200/60 dark:bg-black/60 backdrop-blur-sm  py-8 border-t border-gray-600/30 dark:border-gray-800/30">
             <div className="h-[10rem] md:h-[12rem] flex items-center justify-center">
-                <TextHoverEffect text="RuOk" />
+                <TextHoverEffect text="Sahayak" />
             </div>
 
 
@@ -42,11 +42,11 @@ const Footer = () => {
 
 
             <div className="flex items-center justify-center space-x-4 mb-6">
-                <span className="text-zinc-400 text-lg font-medium">Built by</span>
+                <span className="text-zinc-400 text-lg font-medium"></span>
 
-                <div className="flex items-center justify-center ">
+                {/* <div className="flex items-center justify-center ">
                     <AnimatedTooltip items={people} />
-                </div>
+                </div> */}
             </div>
 
 

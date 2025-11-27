@@ -18,7 +18,7 @@ const Hero=()=>{
                 by="word"
                 once
                 className="font-mynabali-serif text-balance text-4xl font-bold px-8 sm:text-6xl md:text-8xl lg:leading-[1.2] my-2 ">
-                RUOk - connect to your emotional self!
+                Sahayak - connect to your emotional self!
             </TextAnimate>
             <TextAnimate
                 animation="blurInUp"
