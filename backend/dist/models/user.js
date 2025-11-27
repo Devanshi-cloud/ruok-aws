@@ -41,7 +41,7 @@ const UserSchema = new mongoose_1.Schema({
     bio: { type: String },
     photoUrl: {
         type: String,
-        default: "https://ui-private.shadcn.com/avatars/02.png",
+        default: "/avatars/default.png", // Use relative path instead of full URL
     },
     isGuest: { type: Boolean, default: false },
     isGoogleAuth: { type: Boolean, default: false },
