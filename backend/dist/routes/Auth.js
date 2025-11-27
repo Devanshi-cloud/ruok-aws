@@ -63,6 +63,10 @@ router.post('/login', async (req, res) => {
         if (!user) {
             return res.status(403).json({ message: 'Invalid Credentials' });
         }
+        // If the user exists but doesn't have a password (e.g., signed up with Google)
+        if (!user.password) {
+            return res.status(403).json({ message: 'Please log in with Google' });
+        }
         //validate password
         const isValidPassword = await bcrypt_1.default.compare(password, user.password);
         if (!isValidPassword) {
@@ -82,7 +86,7 @@ router.post('/login', async (req, res) => {
         res.status(200).json({ message: 'User logged in successfully', user: userObj });
     }
     catch (err) {
-        console.error("Signup Error:", err);
+        console.error("Login Error:", err); // Changed "Signup Error" to "Login Error" for clarity
         return res.status(500).json({ message: 'Internal server error' });
     }
 });
