@@ -15,9 +15,9 @@ import bookingRoutes from './routes/Booking';
 import chatRouter from './routes/Chat';
 
 app.use(cors({
-    origin:['http://localhost:5173', 'https://sahayak-9iho.vercel.app'],
-    credentials: true,
-}))
+  origin: ["http://localhost:5173", "http://localhost:3000", "https://sahayak-oaed.vercel.app"],
+  credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser())
 require('dotenv').config();
@@ -46,4 +46,3 @@ module.exports=app;
 if(require.main===module){
     app.listen(8000,()=>console.log("Server is running on port 8000"))
 }
-
