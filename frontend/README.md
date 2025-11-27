@@ -1,13 +1,16 @@
 # RuOk ✨
->Your emotional wellness companion that helps you understand, track, and manage your mental health with precision and care.
+
+> Your emotional wellness companion that helps you understand, track, and manage your mental health with precision and care.
 
 ![img.png](src/assets/img.png)
 
 ## What RuOk Does 🚀
-Ru-Ok is a comprehensive mental health application that empowers users to navigate their emotional landscape through detailed emotion tracking, 
+
+Sahayak is a comprehensive mental health application that empowers users to navigate their emotional landscape through detailed emotion tracking,
 AI-powered support, and personalized wellness tools designed to transform emotional awareness into lasting wellbeing.
 
-## Problem  🎯
+## Problem 🎯
+
 Many individuals face significant barriers in managing their emotional wellbeing:
 
 - **Limited Emotional Vocabulary** - People struggle to articulate their feelings beyond basic terms, lacking the precise language needed to identify complex emotional states
@@ -18,24 +21,29 @@ Many individuals face significant barriers in managing their emotional wellbeing
 - **Barriers to Effective Self-Care** - Without proper emotional identification and support tools, individuals struggle to develop healthy coping mechanisms and emotional regulation strategies
 
 ## Our Solution 💡
-Ru-Ok bridges this gap by providing a sophisticated yet accessible platform that meets users wherever they are on their mental health journey. We're building a comprehensive emotional wellness ecosystem that combines precision tracking with intelligent support.
+
+Sahayak bridges this gap by providing a sophisticated yet accessible platform that meets users wherever they are on their mental health journey. We're building a comprehensive emotional wellness ecosystem that combines precision tracking with intelligent support.
 
 ## Current Features 🔍
 
 ### Precision Emotion Tracking
+
 - Choose from 300+ carefully curated emotions to accurately identify your feelings
 - Move beyond generic mood categories to understand your emotional nuances
 - No more settling for "fine" when your emotions deserve better description
 
 ### Smart Categorization System
+
 Classify emotions with contextual tags across three key categories:
+
 - Activity: What you were doing when you felt this emotion
 - Place: Where you were when the emotion occurred
 - People: Who you were with during the emotional experience
-  
+
 Build comprehensive emotional context for better pattern recognition
 
 ### AI Companion Chat (Sage)
+
 - Context-aware chatbot that understands your emotional journey
 - Remembers your previous check-ins and provides personalized guidance
 - Available 24/7 for emotional support and conversation
@@ -48,14 +56,14 @@ Build comprehensive emotional context for better pattern recognition
 - Evidence-based strategies for emotional regulation and wellbeing
 - Adaptive recommendations based on your emotional patterns
 
-
 ### Emotional Analytics
 
 - Track your emotional patterns over time
 - Identify triggers and growth areas
 - Visualize your mental health progress with intuitive charts and insights
 
-##  Future Roadmap
+## Future Roadmap
+
 ### Social Connection Features
 
 - Friend Check-ins: Share meaningful emotional updates with your trusted circle
@@ -70,14 +78,15 @@ Build comprehensive emotional context for better pattern recognition
 
 ## Tech Stack ⚙️
 
-- **Frontend**: React 
+- **Frontend**: React
 - **Backend**: Node.js + Express
-- **Database**: MongoDB 
+- **Database**: MongoDB
 - **AI/ML**: Gemini 2.5 flash + Groq
 
 ## Backend code available [here](https://github.com/iamtanishqsethi/RUOK-backend)
 
 ## Installation
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/iamtanishqsethi/RUOK-frontend
@@ -88,16 +97,10 @@ Build comprehensive emotional context for better pattern recognition
    ```
 3. Install dependencies:
    ```bash
-   npm i 
+   npm i
    ```
 4. Run the application:
    ```bash
    npm run dev
    ```
-The app will be available at ```http://localhost:5173/```
- 
-## Created By :
-
-[Suvrat Mittal](https://github.com/suvrat007), [Chehak Sharma](https://github.com/ch3hak), [Tanishq Sethi](https://github.com/iamtanishqsethi/)
-
-
+   The app will be available at `http://localhost:5173/`

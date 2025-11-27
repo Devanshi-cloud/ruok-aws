@@ -1,4 +1,4 @@
-# RU-OK: Digital Mental Health Support System for Higher Education
+# Sahayak: Digital Mental Health Support System for Higher Education
 
 <div align="center">
 
@@ -13,22 +13,12 @@
 
 ![img.png](img.png)
 
-## Team Details 
-Team Id - 63584
-
-Members:
-- Suvrat Mittal (Team Lead)
-- Chehak Sharma 
-- Sumit Singh Bisht
-- Shubham Raj
-- Lakshay Goyal 
-- Tanishq Sethi
 
 ## 📋 Overview
 
-RU-OK is a comprehensive digital mental health platform specifically designed for higher education institutions to address the growing mental health crisis among college students. Our platform provides culturally-sensitive, institution-specific psychological support through AI-guided interventions, professional counseling integration, and peer support systems.
+Sahayak is a comprehensive digital mental health platform specifically designed for higher education institutions to address the growing mental health crisis among college students. Our platform provides culturally-sensitive, institution-specific psychological support through AI-guided interventions, professional counseling integration, and peer support systems.
 
-Unlike generic Western-oriented mental health applications, RU-OK fills a critical gap with features tailored to diverse cultural contexts, multilingual support, and institution-specific customization.
+Unlike generic Western-oriented mental health applications, Sahayak fills a critical gap with features tailored to diverse cultural contexts, multilingual support, and institution-specific customization.
 
 ## 🚀 Features
 
@@ -57,10 +47,10 @@ Unlike generic Western-oriented mental health applications, RU-OK fills a critic
 
 All user data is encrypted using SHA256 for maximum privacy and security. The platform emphasizes confidentiality across all interactions, with special attention to anonymous forum participation.
 
-
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - React 19.1.0
 - TypeScript 5.8.3
 - Three.js (for 3D avatar)
@@ -68,6 +58,7 @@ All user data is encrypted using SHA256 for maximum privacy and security. The pl
 - Radix UI (accessible components)
 
 ### Backend
+
 - Express.js 4.18.2
 - MongoDB with Mongoose 7.5.0
 - Node.js with TypeScript
@@ -75,6 +66,7 @@ All user data is encrypted using SHA256 for maximum privacy and security. The pl
 - Google Auth integration
 
 ### AI & ML
+
 - Google Generative AI integration
 - ElevenLabs Voice AI
 - GROQ SDK for language processing
@@ -106,6 +98,7 @@ All user data is encrypted using SHA256 for maximum privacy and security. The pl
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm package manager
 - MongoDB instance
@@ -115,9 +108,9 @@ All user data is encrypted using SHA256 for maximum privacy and security. The pl
 ```bash
 # Clone the repository
 git clone https://github.com/iamtanishqsethi/RUOK-SIH
-cd ru-ok
+cd Sahayak
 
-# Open Backend Folder 
+# Open Backend Folder
 cd backend
 
 # Install dependencies
@@ -130,7 +123,7 @@ touch .env
 # Start development server
 npm run dev
 
-# Open Frontend Folder 
+# Open Frontend Folder
 cd frontend
 
 # Install dependencies
@@ -144,37 +137,21 @@ touch .env
 npm run dev
 ```
 
-
-
-[//]: # (### Environment Variables)
-
-[//]: # ()
-[//]: # (Create a `.env` file with the following variables:)
-
-[//]: # ()
-[//]: # (```)
-
-[//]: # (MONGODB_URI=your_mongodb_connection_string)
-
-[//]: # (JWT_SECRET=your_jwt_secret)
-
-[//]: # (GOOGLE_CLIENT_ID=your_google_client_id)
-
-[//]: # (ELEVENLABS_API_KEY=your_elevenlabs_api_key)
-
-[//]: # (GOOGLE_AI_API_KEY=your_google_ai_api_key)
-
-[//]: # (CLOUDINARY_CLOUD_NAME=your_cloudinary_name)
-
-[//]: # (CLOUDINARY_API_KEY=your_cloudinary_api_key)
-
-[//]: # (CLOUDINARY_API_SECRET=your_cloudinary_api_secret)
-
-[//]: # (```)
-
-
+[//]: # "### Environment Variables"
+[//]: #
+[//]: # "Create a `.env` file with the following variables:"
+[//]: #
+[//]: # "```"
+[//]: # "MONGODB_URI=your_mongodb_connection_string"
+[//]: # "JWT_SECRET=your_jwt_secret"
+[//]: # "GOOGLE_CLIENT_ID=your_google_client_id"
+[//]: # "ELEVENLABS_API_KEY=your_elevenlabs_api_key"
+[//]: # "GOOGLE_AI_API_KEY=your_google_ai_api_key"
+[//]: # "CLOUDINARY_CLOUD_NAME=your_cloudinary_name"
+[//]: # "CLOUDINARY_API_KEY=your_cloudinary_api_key"
+[//]: # "CLOUDINARY_API_SECRET=your_cloudinary_api_secret"
+[//]: # "```"
 
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-

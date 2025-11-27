@@ -11,7 +11,7 @@ const reviews = [
     {
         name: "Mike",
         username: "@mike_journey",
-        body: "Sharing check-ins with my close friends through Ru-Ok has deepened our friendships more than I ever expected. We actually talk about real stuff now.",
+        body: "Sharing check-ins with my close friends through Sahayak has deepened our friendships more than I ever expected. We actually talk about real stuff now.",
         img: "https://avatar.vercel.sh/mike",
     },
     {
@@ -29,7 +29,7 @@ const reviews = [
     {
         name: "Lisa",
         username: "@lisa_mindful",
-        body: "Been using mental health apps for years, but Ru-Ok is different. It doesn't just track - it actually helps me understand and grow.",
+        body: "Been using mental health apps for years, but Sahayak is different. It doesn't just track - it actually helps me understand and grow.",
         img: "https://avatar.vercel.sh/lisa",
     },
     {
