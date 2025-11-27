@@ -13,7 +13,6 @@
 
 ![img.png](img.png)
 
-
 ## 📋 Overview
 
 Sahayak is a comprehensive digital mental health platform specifically designed for higher education institutions to address the growing mental health crisis among college students. Our platform provides culturally-sensitive, institution-specific psychological support through AI-guided interventions, professional counseling integration, and peer support systems.
@@ -143,7 +142,7 @@ npm run dev
 [//]: #
 [//]: # "```"
 [//]: # "MONGODB_URI=your_mongodb_connection_string"
-[//]: # "JWT_SECRET=your_jwt_secret"
+[//]: # "JWT_KEY=your_JWT_KEY"
 [//]: # "GOOGLE_CLIENT_ID=your_google_client_id"
 [//]: # "ELEVENLABS_API_KEY=your_elevenlabs_api_key"
 [//]: # "GOOGLE_AI_API_KEY=your_google_ai_api_key"
