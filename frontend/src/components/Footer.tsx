@@ -50,13 +50,7 @@ const Footer = () => {
             </div>
 
 
-            <div className="flex items-center space-x-6 mb-4">
-                <a href="https://github.com/iamtanishqsethi/RUOK-frontend" className="dark:text-zinc-400 text-zinc-600 hover:text-black hover:dark:hover:text-white transition-colors duration-200 flex items-center space-x-1">
-                    <Github size={16} />
-                    <span className="text-xs">Source</span>
-                </a>
-
-            </div>
+           
 
 
             <div className="text-xs text-gray-500">
