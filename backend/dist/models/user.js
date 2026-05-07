@@ -57,5 +57,14 @@ const UserSchema = new mongoose_1.Schema({
         default: 'user',
         required: true
     },
+    geminiApiKey: {
+        type: String,
+        default: null,
+        select: false, // Don't return this by default for security
+    },
+    geminiModel: {
+        type: String,
+        default: 'gemini-2.0-flash',
+    },
 }, { timestamps: true });
 exports.default = mongoose_1.default.model("User", UserSchema);

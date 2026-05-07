@@ -9,6 +9,8 @@ export interface IUser extends Document {
     isGuest: boolean;
     isGoogleAuth: boolean;
     password?: string;
+    geminiApiKey?: string;
+    geminiModel?: string;
     createdAt: Date;
     updatedAt: Date;
     role: 'user' | 'therapist' | 'admin';
@@ -37,6 +39,15 @@ const UserSchema = new Schema<IUser>(
             enum: ['user', 'therapist', 'admin'], 
             default: 'user',
             required: true 
+        },
+        geminiApiKey: {
+            type: String,
+            default: null,
+            select: false, // Don't return this by default for security
+        },
+        geminiModel: {
+            type: String,
+            default: 'gemini-2.0-flash',
         },
     },{ timestamps: true }
 );

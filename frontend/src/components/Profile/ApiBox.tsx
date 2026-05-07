@@ -10,23 +10,16 @@ import {type ChangeEvent, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import type {User} from "@/utils/types.ts";
 import mixpanelService from "@/services/MixpanelService.ts";
+
 const ApiBox = () => {
 
     const user = useSelector((state: { user: User | null }) => state.user);
     const [isGuest, setIsGuest] = useState(false);
     const [apiKey, setApiKey] = useState<string>('');
-    const [selectedModel, setSelectedModel] = useState('');
+    const [selectedModel, setSelectedModel] = useState('gemini-2.0-flash');
+    const [isSaving, setIsSaving] = useState(false);
+    const [saveMessage, setSaveMessage] = useState('');
 
-    useEffect(() => {
-        const savedApiKey = localStorage.getItem('gemini_api_key')
-        const savedModel = localStorage.getItem('gemini_model')
-        if(savedApiKey){
-            setApiKey(savedApiKey)
-        }
-        if(savedModel){
-            setSelectedModel(savedModel)
-        }
-    }, []);
     useEffect(() => {
         if(user?.isGuest){
             setIsGuest(true);
@@ -36,18 +29,51 @@ const ApiBox = () => {
     const handleApiKeyChange = (e:ChangeEvent<HTMLInputElement>) => {
         const newApiKey = e.target.value;
         setApiKey(newApiKey);
-        mixpanelService.trackButtonClick('Api key changed', { location: 'Profile' });
-
-        if (newApiKey.trim()) {
-            localStorage.setItem('gemini_api_key', newApiKey);
-        } else {
-            localStorage.removeItem('gemini_api_key');
-        }
+        setSaveMessage('');
     };
 
     const handleModelChange = (value:string) => {
         setSelectedModel(value);
-        localStorage.setItem('gemini_model', value);
+        setSaveMessage('');
+    };
+
+    const handleSaveSettings = async () => {
+        if (!apiKey.trim()) {
+            setSaveMessage('Please enter an API key');
+            return;
+        }
+
+        setIsSaving(true);
+        try {
+            const response = await fetch('/api/ai/settings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                body: JSON.stringify({
+                    apiKey: apiKey.trim(),
+                    model: selectedModel,
+                }),
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                setSaveMessage(`Error: ${data.error || 'Failed to save settings'}`);
+                return;
+            }
+
+            setSaveMessage('✓ Settings saved successfully');
+            mixpanelService.trackButtonClick('Gemini API settings saved', { location: 'Profile' });
+            
+            // Clear message after 3 seconds
+            setTimeout(() => setSaveMessage(''), 3000);
+        } catch (error) {
+            console.error('Error saving settings:', error);
+            setSaveMessage('Failed to save settings');
+        } finally {
+            setIsSaving(false);
+        }
     };
 
     return (
@@ -70,10 +96,22 @@ const ApiBox = () => {
                     <SelectItem value="gemini-2.5-flash-preview-04-17">Gemini 2.5 Flash (Preview)</SelectItem>
                     <SelectItem value="gemini-2.0-flash">Gemini 2.0 Flash</SelectItem>
                     <SelectItem value="gemini-2.0-flash-lite">Gemini 2.0 Flash-Lite</SelectItem>
-                    <SelectItem value="gemini-1.5-flash">Gemini 1.5 Flash</SelectItem>
-                    <SelectItem value="gemini-1.5-pro">Gemini 1.5 Pro</SelectItem>
                 </SelectContent>
             </Select>
+
+            <button
+                onClick={handleSaveSettings}
+                disabled={isGuest || isSaving}
+                className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+                {isSaving ? 'Saving...' : 'Save Settings'}
+            </button>
+
+            {saveMessage && (
+                <p className={`text-sm ${saveMessage.includes('✓') ? 'text-green-600' : 'text-red-600'}`}>
+                    {saveMessage}
+                </p>
+            )}
         </div>
     );
 };

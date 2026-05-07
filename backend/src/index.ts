@@ -13,6 +13,7 @@ import ProfileRouter from './routes/Profile';
 import FeedbackRouter from './routes/Feedback';
 import bookingRoutes from './routes/Booking';
 import chatRouter from './routes/Chat';
+import AIRouter from './routes/AI';
 
 // Load dotenv FIRST
 require('dotenv').config();
@@ -66,6 +67,7 @@ app.use('/api/profile', ProfileRouter);
 app.use('/api/feedback', FeedbackRouter);
 app.use('/api', bookingRoutes);
 app.use('/api/chat', chatRouter);
+app.use('/api/ai', AIRouter);
 
 connectDb().then(()=>{
     console.log("connected to database")

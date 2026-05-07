@@ -18,6 +18,7 @@ const Profile_1 = __importDefault(require("./routes/Profile"));
 const Feedback_1 = __importDefault(require("./routes/Feedback"));
 const Booking_1 = __importDefault(require("./routes/Booking"));
 const Chat_1 = __importDefault(require("./routes/Chat"));
+const AI_1 = __importDefault(require("./routes/AI"));
 // Load dotenv FIRST
 require('dotenv').config();
 // Set COOP header to allow Google Sign-In postMessage
@@ -64,6 +65,7 @@ app.use('/api/profile', Profile_1.default);
 app.use('/api/feedback', Feedback_1.default);
 app.use('/api', Booking_1.default);
 app.use('/api/chat', Chat_1.default);
+app.use('/api/ai', AI_1.default);
 (0, database_1.connectDb)().then(() => {
     console.log("connected to database");
 }).catch(() => {
