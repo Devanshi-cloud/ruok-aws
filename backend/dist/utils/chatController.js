@@ -5,48 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleSageChat = void 0;
 const generative_ai_1 = require("@google/generative-ai");
-const elevenlabs_js_1 = require("@elevenlabs/elevenlabs-js");
-const child_process_1 = require("child_process");
-const fs_1 = require("fs");
 const dotenv_1 = __importDefault(require("dotenv"));
-const path_1 = require("path");
-const promises_1 = require("stream/promises");
 dotenv_1.default.config();
 const genAI = new generative_ai_1.GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-const elevenLabsApiKey = process.env.ELEVENLABS_API_KEY;
-const voiceID = '21m00Tcm4TlvDq8ikWAM';
-const elevenLabs = new elevenlabs_js_1.ElevenLabsClient();
-const execCommand = (command) => {
-    return new Promise((resolve, reject) => {
-        (0, child_process_1.exec)(command, (error, stdout) => {
-            if (error)
-                reject(error);
-            resolve(stdout);
-        });
-    });
-};
-const lipSyncMessage = async (baseFileName) => {
-    const mp3Path = (0, path_1.join)(process.cwd(), 'audios', `${baseFileName}.mp3`);
-    const wavPath = (0, path_1.join)(process.cwd(), 'audios', `${baseFileName}.wav`);
-    const jsonPath = (0, path_1.join)(process.cwd(), 'audios', `${baseFileName}.json`);
-    const rhubarbPath = (0, path_1.join)(process.cwd(), 'bin', 'rhubarb');
-    await execCommand(`ffmpeg -y -i "${mp3Path}" "${wavPath}"`);
-    await execCommand(`"${rhubarbPath}" -f json -o "${jsonPath}" "${wavPath}" -r phonetic`);
-};
-const audioFileToBase64 = async (file) => {
-    const data = await fs_1.promises.readFile(file);
-    return data.toString('base64');
-};
-const readJsonTranscript = async (file) => {
-    const data = await fs_1.promises.readFile(file, 'utf8');
-    return JSON.parse(data);
-};
 const handleSageChat = async (req, res) => {
     let { message: userMessage, dayCheckIns, feedbacks, chatHistory } = req.body;
     if (!userMessage) {
         return res.status(400).json({ message: "Message is required" });
     }
-    if (!elevenLabsApiKey || !process.env.GEMINI_API_KEY) {
+    if (!process.env.GEMINI_API_KEY) {
         return res.status(400).json({ error: 'API keys are missing.' });
     }
     try {
@@ -54,18 +21,8 @@ const handleSageChat = async (req, res) => {
             const text = "Hey there! Before we start, could you do a quick emotional check-in so I can understand you better?";
             const facialExpression = "smile";
             const animation = "Talking_1";
-            const fileName = (0, path_1.join)(process.cwd(), 'audios', 'initial_greeting.mp3');
-            const audioStream = await elevenLabs.textToSpeech.convert(voiceID, {
-                text,
-                modelId: "eleven_multilingual_v2",
-            });
-            const fileWriteStream = (0, fs_1.createWriteStream)(fileName);
-            await (0, promises_1.pipeline)(audioStream, fileWriteStream);
-            await lipSyncMessage('initial_greeting');
-            const audio = await audioFileToBase64(fileName);
-            const lipsync = await readJsonTranscript((0, path_1.join)(process.cwd(), 'audios', 'initial_greeting.json'));
             return res.json({
-                messages: [{ id: `msg_${Date.now()}`, text, audio, lipsync, facialExpression, animation }],
+                messages: [{ id: `msg_${Date.now()}`, text, audio: null, lipsync: null, facialExpression, animation }],
             });
         }
         else if (userMessage === "INITIAL_GREETING_WITH_CHECKIN") {
@@ -155,28 +112,13 @@ const handleSageChat = async (req, res) => {
             return res.status(400).json({ message: "Failed to analyze text." });
         }
         const { facialExpression, animation } = JSON.parse(analysisResult.response.text());
-        //generate audio and lipsync
-        const baseFileName = 'message_0';
-        const fileName = (0, path_1.join)(process.cwd(), 'audios', `${baseFileName}.mp3`);
-        const audioStream = await elevenLabs.textToSpeech.convert(voiceID, {
-            text: sageTextResponse,
-            modelId: "eleven_multilingual_v2",
-        });
-        if (!audioStream) {
-            return res.status(400).json({ message: "Failed to process chat message. Eleven Labs API returned no audio stream." });
-        }
-        const fileWriteStream = (0, fs_1.createWriteStream)(fileName);
-        await (0, promises_1.pipeline)(audioStream, fileWriteStream);
-        await lipSyncMessage(baseFileName);
-        const audio = await audioFileToBase64(fileName);
-        const lipsync = await readJsonTranscript(`audios/message_0.json`);
         //send the complete response back
         res.json({
             messages: [{
                     id: `msg_${Date.now()}`,
                     text: sageTextResponse,
-                    audio,
-                    lipsync,
+                    audio: null,
+                    lipsync: null,
                     facialExpression,
                     animation,
                 }],
